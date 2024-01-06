@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  app:
+    container_name: simple-webapp-nodejs
+    build: .
+    environment:
+      - DB_HOST=db
+    ports:
+      - 8000:8000   
+  db: 
+    container_name: postgres
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres_db
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres_data:
