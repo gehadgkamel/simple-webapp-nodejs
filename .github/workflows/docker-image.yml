@@ -21,11 +21,11 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "${{ secrets.DOCKER_USERNAME }}
+      - run: echo "${{ secrets.DOCKER_USERNAME }}"
 
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ github.repository }}:$(date +%s)
+      run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:$(date +%s)
