@@ -18,3 +18,11 @@ docker run --name simple-webapp-nodejs --rm -p 8000:8000 -e DB_HOST=172.17.0.2 s
 docker compose up -d 
 
 docker compose down
+
+kubectl create deployment simple-webapp-nodejs --image=gehadgkamel/simple-webapp-nodejs:latest --replicas=1 --dry-run=client -o yaml > Infrastructure/manifests/simple-webapp-nodejs-deployment.yaml
+
+kubectl expose deployment simple-webapp-nodejs --type=ClusterIP --port=80 --target-port=8000 --dry-run=client -o yaml > Infrastructure/manifests/simple-webapp-nodejs-service.yaml
+
+kubectl create ingress simple-webapp-nodejs --rule="myapp.example.com/*=simple-webapp-nodejs:80" --dry-run=client -o yaml > Infrastructure/manifests/simple-webapp-nodejs-ingress.yaml
+
+aws eks update-kubeconfig --name ex-terraform --region us-east-1
