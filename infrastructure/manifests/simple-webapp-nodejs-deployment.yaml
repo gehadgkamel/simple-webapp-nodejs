@@ -1,32 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: simple-webapp-nodejs
   name: simple-webapp-nodejs
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: simple-webapp-nodejs
-  strategy: {}
   template:
     metadata:
       labels:
         app: simple-webapp-nodejs
     spec:
       containers:
-      - image: gehadgkamel/simple-webapp-nodejs:latest
-        name: simple-webapp-nodejs
+      - name: simple-webapp-nodejs
+        image: gehadgkamel/simple-webapp-nodejs:latest
+        ports:
+        - containerPort: 8000
         env:
-          - name: DB_HOST
-            value: "postgres"
-          - name: DB_USER
-            value: "postgres"
-          - name: DB_PASSWORD
-            value: "password"
-          - name: DB_DATABASE
-            value: "postgres_db"
-          - name: DB_PORT
-            value: "5432"
-status: {}
+        - name: DB_HOST
+          value: "postgres"  # Use the service name of your PostgreSQL database
+        - name: DB_USER
+          value: "postgres"
+        - name: DB_PASSWORD
+          value: "password"  # Ensure this matches the password in PostgreSQL
+        - name: DB_DATABASE
+          value: "postgres_db"
+        - name: DB_PORT
+          value: "5432"
