@@ -21,7 +21,7 @@ spec:
         - name: POSTGRES_USER
           value: "postgres"
         - name: POSTGRES_PASSWORD
-          value: "your-password"
+          value: "password"  
         ports:
         - containerPort: 5432
         volumeMounts:
