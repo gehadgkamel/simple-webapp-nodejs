@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  creationTimestamp: null
   name: simple-webapp-nodejs
 spec:
+  ingressClassName: nginx
   rules:
   - host: aeefb304cd61e49989c0040617400b1a-1484436399.us-east-1.elb.amazonaws.com
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
             name: simple-webapp-nodejs
             port:
               number: 80
-        path: /
-        pathType: Prefix
 status:
   loadBalancer: {}
