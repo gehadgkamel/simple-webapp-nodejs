@@ -8,7 +8,7 @@ spec:
   - host: aeefb304cd61e49989c0040617400b1a-1484436399.us-east-1.elb.amazonaws.com
     http:
       paths:
-      - path: /
+      - path: /test
         pathType: Prefix
         backend:
           service:
