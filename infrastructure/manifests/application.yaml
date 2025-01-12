@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-webapp-nodejs
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gehadgkamel/simple-webapp-nodejs.git  # Git repo with manifests
+    path: infrastructure/manifests  # Path to the manifests in the repo
+    targetRevision: main     # Git branch
+  destination:
+    server: https://kubernetes.default.svc  # EKS cluster
+    namespace: default  # Namespace in EKS
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
