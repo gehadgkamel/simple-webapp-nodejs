@@ -21,29 +21,14 @@ spec:
       - image: gehadgkamel/simple-webapp-nodejs:latest
         name: simple-webapp-nodejs
         env:
-          - name: POSTGRES_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-connection
-                key: POSTGRES_HOST
-          - name: POSTGRES_PORT
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-connection
-                key: POSTGRES_PORT
-          - name: POSTGRES_DB
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-connection
-                key: POSTGRES_DB
-          - name: POSTGRES_USER
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-connection
-                key: POSTGRES_USER
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              configMapKeyRef:
-                name: postgres-connection
-                key: POSTGRES_PASSWORD
+          - name: DB_HOST
+            value: "db"
+          - name: DB_USER
+            value: "postgres"
+          - name: DB_PASSWORD
+            value: "password"
+          - name: DB_DATABASE
+            value: "postgres_db"
+          - name: DB_PORT
+            value: "5432"
 status: {}
