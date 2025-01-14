@@ -19,11 +19,11 @@ spec:
         - containerPort: 8000
         env:
         - name: DB_HOST
-          value: "postgres"  # Use the service name of your PostgreSQL database
+          value: "postgres"  
         - name: DB_USER
           value: "postgres"
         - name: DB_PASSWORD
-          value: "password"  # Ensure this matches the password in PostgreSQL
+          value: "password" 
         - name: DB_DATABASE
           value: "postgres_db"
         - name: DB_PORT

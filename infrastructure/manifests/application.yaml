@@ -6,12 +6,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/gehadgkamel/simple-webapp-nodejs.git  # Git repo with manifests
-    path: infrastructure/manifests  # Path to the manifests in the repo
-    targetRevision: main     # Git branch
+    repoURL: https://github.com/gehadgkamel/simple-webapp-nodejs.git  
+    path: infrastructure/manifests  
+    targetRevision: main     
   destination:
-    server: https://kubernetes.default.svc  # EKS cluster
-    namespace: default  # Namespace in EKS
+    server: https://kubernetes.default.svc 
+    namespace: default  
   syncPolicy:
     automated:
       prune: true
