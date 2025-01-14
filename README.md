@@ -33,64 +33,6 @@ Terraform (for infrastructure provisioning)
 PostgreSQL (or use the provided Docker setup)
 
 
-## Project Structure
-
-simple-webapp-nodejs/
-
-├── .github/workflows/          # GitHub Actions workflows
-
-│   └── docker-image.yml        # CI/CD pipeline for building and pushing Docker images
-
-├── app/                        # Application source code
-
-│   ├── views/pages/            # EJS templates
-
-│   │   └── index.ejs           # Homepage template
-
-│   └── app.js                  # Main application file
-
-├── infrastructure/             # Kubernetes manifests
-
-│   ├── manifests/
-
-│   │   ├── application.yaml    # Argo CD Application 
-manifest
-
-│   │   ├── postgres-deployment.yaml
-
-│   │   ├── postgres-service.yaml
-
-│   │   ├── simple-webapp-nodejs-deployment.yaml
-
-│   │   ├── simple-webapp-nodejs-ingress.yaml
-
-│   │   └── simple-webapp-nodejs-service.yaml
-
-├── terraform/                  # Terraform configuration
-
-│   ├── .terraform.lock.hcl     # Terraform dependency 
-lock file
-
-│   ├── main.tf                 # Main Terraform configuration
-
-│   ├── outputs.tf              # Terraform output definitions
-
-│   ├── variables.tf            # Terraform variables
-
-│   └── versions.tf             # Terraform version constraints
-
-├── .dockerignore               # Files to ignore in Docker builds
-
-├── .gitignore                  # Files to ignore in Git
-
-├── Dockerfile                  # Dockerfile for the Node.js app
-
-├── package-lock.json           # Node.js dependency lock file
-
-├── package.json                # Node.js dependencies and scripts
-
-└── README.md                   # This file
-
 ## Getting Started
 1. Clone the Repository 
 
