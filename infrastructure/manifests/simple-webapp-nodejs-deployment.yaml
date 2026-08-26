@@ -14,17 +14,11 @@ spec:
     spec:
       containers:
       - name: simple-webapp-nodejs
-        image: gehadgkamel/simple-webapp-nodejs:latest
+        image: gehadgkamel/simple-webapp-nodejs:302b90f8711be296883fa74e15ce1b1a3a25b08d
         ports:
         - containerPort: 8000
-        env:
-        - name: DB_HOST
-          value: "postgres"  
-        - name: DB_USER
-          value: "postgres"
-        - name: DB_PASSWORD
-          value: "password" 
-        - name: DB_DATABASE
-          value: "postgres_db"
-        - name: DB_PORT
-          value: "5432"
+        envFrom:
+        - configMapRef:
+            name: app-config
+        - secretRef:
+                name: app-secret
