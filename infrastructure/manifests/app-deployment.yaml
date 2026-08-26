@@ -21,4 +21,4 @@ spec:
         - configMapRef:
             name: app-config
         - secretRef:
-                name: app-secret
+            name: app-secret
