@@ -21,3 +21,6 @@ nodeExporter:
 
 kubeStateMetrics:
   enabled: true
+  
+prometheus-node-exporter:
+  affinity: {}
